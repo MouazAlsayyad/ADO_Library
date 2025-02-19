@@ -1,29 +1,10 @@
 ﻿@model IEnumerable<Library.Domain.Book.Book>
 
 @{
-    ViewData["Title"] = "Books";
+    ViewData["Title"] = "Search Results";
 }
 
-<h2>Search Books</h2>
-<form asp-action="Search" method="get" class="mb-4">
-    <div class="row g-2">
-        <div class="col-md-3">
-            <input type="text" name="searchText" class="form-control" placeholder="Search..." />
-        </div>
-        <div class="col-md-3">
-            <input type="text" name="title" class="form-control" placeholder="Title" />
-        </div>
-        <div class="col-md-3">
-            <input type="text" name="author" class="form-control" placeholder="Author" />
-        </div>
-        <div class="col-md-3">
-            <input type="text" name="isbn" class="form-control" placeholder="ISBN" />
-        </div>
-        <div class="col-md-12 text-end">
-            <button type="submit" class="btn btn-primary">Search</button>
-        </div>
-    </div>
-</form>
+<h2>Search Results</h2>
 
 <div class="d-flex flex-wrap gap-3 m-1">
     @foreach (var book in Model)
