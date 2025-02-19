@@ -1,0 +1,83 @@
+# .NET Core / .NET Framework
+bin/
+obj/
+out/
+*.exe
+*.dll
+*.pdb
+*.mdb
+*.log
+
+# Visual Studio specific
+.vs/
+*.suo
+*.user
+*.vcxproj.user
+*.cache
+*.csproj.user
+*.dbmdl
+*.jfm
+
+# NuGet Packages
+*.nupkg
+**/packages/*
+# Uncomment if you have any private NuGet feeds
+# NuGet.config
+
+# Build results
+*.build.csdef
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Logs and database
+*.log
+logs/
+*.ldf
+*.mdf
+
+# Entity Framework Migrations
+Migrations/
+
+# Web-specific files
+wwwroot/node_modules/
+wwwroot/lib/
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Publish outputs
+publish/
+*.publishsettings
+*.deploy*
+
+# User secrets
+secrets.json
+
+# IDE files
+.idea/
+*.iml
+
+# Resharper
+*.DotSettings.user
+
+# Rider
+.idea/
+*.sln.iml
+
+# JetBrains Rider
+.idea/
+.idea_modules/
+
+# Optional: Ignore test results
+TestResults/
+Coverage/
+*.coverage
+*.coveragexml
+
+# Local settings
+appsettings.Development.json
+
+# Miscellaneous
+Thumbs.db
+Desktop.ini

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Library.Domain.Book.Book>
+
+@{
+    ViewData["Title"] = "Books";
+}
+
+<div class="d-flex flex-wrap gap-3 m-1">
+    @foreach (var book in Model)
+    {
+        <div class="card p-3" style="width: 18rem;">
+            <div class="card-body">
+                <h3 class="card-title">@book.Title</h3>
+                <div class="row">
+                    <div class="col-6">
+                        <h4>Author</h4>
+                        <p>@book.Author</p>
+                    </div>
+                    <div class="col-6">
+                        <h5>ISBN</h5>
+                        <p>@book.ISBN</p>
+                    </div>
+                </div>
+                <div class="d-grid gap-2">
+                    @if (book.Availability)
+                    {
+                        <a href="@Url.Action("Borrow", "Book", new { id = book.Id })" class="btn btn-success">Borrow Book</a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Return", "Book", new { id = book.Id })" class="btn btn-warning">Return Book</a>
+                    }
+                    <a class="btn btn-primary" asp-controller="Book" asp-action="Details" asp-route-id="@book.Id">Show Details</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

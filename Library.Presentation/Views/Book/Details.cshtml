@@ -1,0 +1,55 @@
+﻿@model Library.Domain.Book.Book
+
+@{
+    ViewData["Title"] = "Book Details";
+}
+
+<h1>@Model.Title</h1>
+
+<div>
+    <h3>Book Information</h3>
+    <table class="table">
+        <tr>
+            <th>Title</th>
+            <td>@Model.Title</td>
+        </tr>
+        <tr>
+            <th>Author</th>
+            <td>@Model.Author</td>
+        </tr>
+        <tr>
+            <th>ISBN</th>
+            <td>@Model.ISBN</td>
+        </tr>
+        <tr>
+            <th>Published Year</th>
+            <td>@Model.PublishedYear?.ToString("yyyy")</td>
+        </tr>
+        <tr>
+            <th>Availability</th>
+            <td>@(Model.Availability ? "Available" : "Not Available")</td>
+        </tr>
+        <tr>
+            <th>Created Date</th>
+            <td>@Model.CreatedDate.ToString("yyyy-MM-dd HH:mm:ss")</td>
+        </tr>
+        <tr>
+            <th>Updated Date</th>
+            <td>@Model.UpdatedDate.ToString("yyyy-MM-dd HH:mm:ss")</td>
+        </tr>
+    </table>
+</div>
+
+<div class="d-flex">
+    @if (Model.Availability)
+    {
+        <a href="@Url.Action("Borrow", "Book", new { id = Model.Id })" class="btn btn-success mr-2">Borrow Book</a>
+    }
+    else
+    {
+        <a href="@Url.Action("Return", "Book", new { id = Model.Id })" class="btn btn-warning mr-2">Return Book</a>
+    }
+
+    <a href="@Url.Action("Index", "Book")" class="ms-2 btn btn-primary">Back to List</a>
+</div>
+

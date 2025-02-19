@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Library.Domain.Book.Book>
+
+@{
+    ViewData["Title"] = "Borrowed Books";
+}
+
+@if (!Model.Any())
+{
+    <p>You have not borrowed any books.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.Author</td>
+                    <td>@book.ISBN</td>
+                    <td>
+                        <a href="@Url.Action("Return", "Book", new { id = book.Id })" class="btn btn-warning">Return</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<div>
+    <a href="@Url.Action("Index", "Book")" class="btn btn-primary">Back to List</a>
+</div>
